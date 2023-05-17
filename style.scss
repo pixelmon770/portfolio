@@ -16,6 +16,9 @@ html {
     overflow-x: hidden;
     font-size: 62%;
 }
+ul{
+    padding-left: 1.5rem;
+}
 
 body {
     background-color: rgb(10, 31, 41);
@@ -212,6 +215,28 @@ section {
     }
     p{
         font-size: 1.3rem;
+    }
+    .about-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .game{
+            text-align: center;
+            button{
+                width: 20rem;
+                height: 5rem;
+                border-radius: .6rem;
+                background: $main-color;
+                color: $hover-color;
+                border: .3rem solid $hover-color;
+                transition: .3s;
+                &:hover{
+                    background: $hover-color;
+                    color: $main-color;
+                }
+            }
+        }
     }
 }
 .education{

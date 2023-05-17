@@ -13,6 +13,10 @@ html {
   font-size: 62%;
 }
 
+ul {
+  padding-left: 1.5rem;
+}
+
 body {
   background-color: rgb(10, 31, 41);
   color: white;
@@ -198,6 +202,28 @@ section {
 }
 .about p {
   font-size: 1.3rem;
+}
+.about .about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about .about-content .game {
+  text-align: center;
+}
+.about .about-content .game button {
+  width: 20rem;
+  height: 5rem;
+  border-radius: 0.6rem;
+  background: rgb(10, 31, 41);
+  color: rgb(55, 130, 165);
+  border: 0.3rem solid rgb(55, 130, 165);
+  transition: 0.3s;
+}
+.about .about-content .game button:hover {
+  background: rgb(55, 130, 165);
+  color: rgb(10, 31, 41);
 }
 
 .education {
