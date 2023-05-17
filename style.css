@@ -1,0 +1,487 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+  font-size: 62%;
+}
+
+body {
+  background-color: rgb(10, 31, 41);
+  color: white;
+}
+
+span {
+  color: rgb(0, 132, 255);
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2em 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+header .logo {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 600;
+}
+header #menu-icons {
+  display: none;
+}
+header nav a {
+  color: white;
+  margin-left: 3.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+header nav a:hover {
+  color: rgb(55, 130, 165);
+}
+header nav a:active {
+  color: rgb(55, 130, 165);
+}
+
+section {
+  min-height: 100vh;
+  padding: 10rem 9% 2rem;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  padding: 0 9%;
+  justify-content: space-between;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(14, 68, 70) 40%, rgb(14, 68, 70) 60%, rgb(25, 25, 25) 100%);
+  background-size: 200%;
+  animation: background-move 15s linear infinite;
+}
+.home .home-content {
+  max-width: 100rem;
+}
+.home .home-content h1 {
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
+.home .home-content h3 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-stroke: 0.5px white;
+}
+.home .home-content p {
+  font-size: 1.6rem;
+  margin: 2rem 0 4rem 0;
+}
+.home .home-content .buttons {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 34rem;
+  height: 5rem;
+}
+.home .home-content .buttons button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 100%;
+  background-color: rgb(10, 31, 41);
+  border: 0.3rem solid rgb(55, 130, 165);
+  color: white;
+  border-radius: 5px;
+  z-index: 1;
+}
+.home .home-content .buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgb(55, 130, 165);
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.home .home-content .buttons button:hover::before {
+  width: 100%;
+}
+.home .home-content .footer {
+  position: absolute;
+  bottom: 4rem;
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+.home .home-content .footer a {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 0.3rem solid rgb(55, 130, 165);
+  border-radius: 50%;
+  font-size: 24px;
+  color: rgb(55, 130, 165);
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+.home .home-content .footer a:hover {
+  background-color: rgb(55, 130, 165);
+  color: rgb(10, 31, 41);
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgb(8, 18, 22);
+  padding-bottom: 6rem;
+}
+.about h2 {
+  font-size: 6rem;
+  font-weight: 1000;
+  text-align: center;
+}
+.about .foto-me {
+  position: relative;
+  width: 27.5rem;
+  height: 27.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .foto-me img {
+  width: 90%;
+  border-radius: 50%;
+  border: 10px solid transparent;
+}
+.about .foto-me .spin {
+  border-left: 12px solid rgb(55, 130, 165);
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-right: 12px solid rgb(55, 130, 165);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0);
+  border-radius: 50%;
+  animation: about-spin 8s linear infinite;
+}
+.about h3 {
+  font-size: 2.5rem;
+}
+.about p {
+  font-size: 1.3rem;
+}
+
+.education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: auto;
+  padding-bottom: 5rem;
+}
+.education .heading {
+  text-align: center;
+  font-size: 5rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.education .edu-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5rem;
+}
+.education .edu-row .edu-col {
+  flex: 1 1 40rem;
+}
+.education .edu-row .edu-col .title {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+}
+.education .edu-row .edu-col .edu-box {
+  border-left: 0.2rem solid rgb(55, 130, 165);
+}
+.education .edu-row .edu-col .edu-box .edu-content {
+  position: relative;
+  padding-left: 2rem;
+  z-index: 1;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content {
+  position: relative;
+  padding: 1.5rem;
+  border: 0.2rem solid rgb(55, 130, 165);
+  border-radius: 0.6rem;
+  margin-bottom: 2rem;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(55, 130, 165, 0.144);
+  z-index: -1;
+  transition: 0.5s;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content:hover::before {
+  width: 100%;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content .year {
+  font-size: 1.5rem;
+  color: rgb(55, 130, 165);
+  letter-spacing: 0.1rem;
+  padding-bottom: 0.5rem;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content .year i {
+  padding-right: 0.5rem;
+}
+.education .edu-row .edu-col .edu-box .edu-content .content h3 {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+
+.skills {
+  min-height: auto;
+  padding-bottom: 7rem;
+  background: rgb(8, 18, 22);
+}
+.skills h2 {
+  font-size: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+.skills .skills-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.skills .skills-row .skills-col {
+  flex: 1 1 40rem;
+}
+.skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
+  width: 85%;
+}
+.skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
+  width: 80%;
+}
+.skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
+  width: 75%;
+}
+.skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
+  width: 60%;
+}
+.skills .skills-row .skills-col:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
+  width: 85%;
+}
+.skills .skills-row .skills-col:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
+  width: 65%;
+}
+.skills .skills-row .skills-col:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
+  width: 40%;
+}
+.skills .skills-row .skills-col .title {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+}
+.skills .skills-row .skills-col .skills-box .skills-content {
+  position: relative;
+  border: 0.3rem solid rgb(55, 130, 165);
+  border-radius: 0.6rem;
+  padding: 0.5rem 1.5rem;
+}
+.skills .skills-row .skills-col .skills-box .skills-content .progress {
+  padding: 1rem 0;
+}
+.skills .skills-row .skills-col .skills-box .skills-content .progress h3 {
+  font-size: 1.7rem;
+  display: flex;
+  justify-content: space-between;
+}
+.skills .skills-row .skills-col .skills-box .skills-content .progress .bar {
+  height: 2.5rem;
+  border-radius: 0.6rem;
+  border: 0.3rem solid rgb(55, 130, 165);
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+.skills .skills-row .skills-col .skills-box .skills-content .progress .bar span {
+  display: block;
+  height: 100%;
+  border-radius: 0.3rem;
+  background: rgb(55, 130, 165);
+}
+
+.contact {
+  max-width: 90rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 2.5rem;
+}
+.contact form .input-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.contact form .input-box .input-field {
+  position: relative;
+  width: 49%;
+  margin: 0.8rem 0;
+  border: 0.3rem solid rgb(55, 130, 165);
+  border-radius: 0.6rem;
+}
+.contact form .input-box .input-field input {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: white;
+  background: transparent;
+  border-radius: 0.6rem;
+  border: 0.2rem solid rgb(10, 31, 41);
+}
+.contact form .input-box .input-textarea {
+  width: 100%;
+  border: 0.3rem solid rgb(55, 130, 165);
+  border-radius: 0.6rem;
+}
+.contact form .input-box .input-textarea textarea {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: white;
+  background: transparent;
+  border-radius: 0.6rem;
+  border: 0.2rem solid rgb(10, 31, 41);
+}
+.contact form .input-box .btns {
+  width: 100%;
+  padding-top: 1rem;
+}
+.contact form .input-box .btns input {
+  width: 20rem;
+  height: 5rem;
+  border-radius: 0.6rem;
+  color: rgb(55, 130, 165);
+  background: rgb(10, 31, 41);
+  text-align: center;
+  border: 0.3rem solid rgb(55, 130, 165);
+  transition: 0.5s;
+}
+.contact form .input-box .btns input:hover {
+  background-color: rgb(55, 130, 165);
+  color: rgb(10, 31, 41);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 9%;
+  background: rgb(8, 18, 22);
+}
+
+@keyframes background-move {
+  0% {
+    background-position-x: 0%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes about-spin {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  header {
+    background: rgb(10, 31, 41);
+  }
+  header #menu-icons {
+    display: block;
+    font-size: 24px;
+  }
+  nav {
+    position: absolute;
+    top: 100%;
+    left: -101%;
+    width: 100%;
+    padding: 1rem 4%;
+    background: rgb(10, 31, 41);
+    box-shadow: 0 0.5rem 1rem black;
+    transition: 0.25s ease;
+    transition-delay: 0.25s;
+  }
+  nav a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+  .active {
+    left: 0;
+  }
+  .education .edu-row {
+    flex-wrap: wrap;
+  }
+  .skills .skills-row {
+    flex-wrap: wrap;
+  }
+  .contact form .input-box .input-field {
+    position: relative;
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
