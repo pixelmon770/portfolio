@@ -17,9 +17,25 @@ ul {
   padding-left: 1.5rem;
 }
 
+.fade-out + body::before {
+  animation: fade-out 0.5s forwards linear;
+  animation-delay: 1.5s;
+}
+
 body {
   background-color: rgb(10, 31, 41);
   color: white;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: black;
+  animation: fade-out 0.5s linear forwards;
 }
 
 span {
@@ -27,6 +43,7 @@ span {
 }
 
 header {
+  visibility: hidden;
   width: 100%;
   position: fixed;
   top: 0;
@@ -36,6 +53,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  background-color: transparent;
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
 }
@@ -74,33 +92,34 @@ section {
   background: rgb(0, 0, 0);
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(14, 68, 70) 40%, rgb(14, 68, 70) 60%, rgb(25, 25, 25) 100%);
   background-size: 200%;
-  animation: background-move 15s linear infinite;
+  animation: background-move 25s linear infinite;
 }
-.home .home-content {
+.home .homeContent {
+  opacity: 0;
   max-width: 100rem;
 }
-.home .home-content h1 {
+.home .homeContent h1 {
   letter-spacing: 1px;
   font-size: 3rem;
 }
-.home .home-content h3 {
+.home .homeContent h3 {
   font-size: 2.5rem;
   font-weight: 500;
   color: transparent;
   -webkit-text-stroke: 0.5px white;
 }
-.home .home-content p {
+.home .homeContent p {
   font-size: 1.6rem;
   margin: 2rem 0 4rem 0;
 }
-.home .home-content .buttons {
+.home .homeContent .buttons {
   position: relative;
   display: flex;
   justify-content: space-between;
   width: 34rem;
   height: 5rem;
 }
-.home .home-content .buttons button {
+.home .homeContent .buttons button {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -113,7 +132,7 @@ section {
   border-radius: 5px;
   z-index: 1;
 }
-.home .home-content .buttons button::before {
+.home .homeContent .buttons button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -124,17 +143,17 @@ section {
   z-index: -1;
   transition: 0.3s ease-in-out;
 }
-.home .home-content .buttons button:hover::before {
+.home .homeContent .buttons button:hover::before {
   width: 100%;
 }
-.home .home-content .footer {
+.home .homeContent .footer {
   position: absolute;
-  bottom: 4rem;
+  bottom: -7.5rem;
   width: 90px;
   display: flex;
   justify-content: space-between;
 }
-.home .home-content .footer a {
+.home .homeContent .footer a {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -150,7 +169,7 @@ section {
   overflow: hidden;
   transition: 0.3s ease-in-out;
 }
-.home .home-content .footer a:hover {
+.home .homeContent .footer a:hover {
   background-color: rgb(55, 130, 165);
   color: rgb(10, 31, 41);
 }
@@ -163,6 +182,7 @@ section {
   gap: 2rem;
   background: rgb(8, 18, 22);
   padding-bottom: 6rem;
+  opacity: 0;
 }
 .about h2 {
   font-size: 6rem;
@@ -233,6 +253,7 @@ section {
   flex-direction: column;
   min-height: auto;
   padding-bottom: 5rem;
+  opacity: 0;
 }
 .education .heading {
   text-align: center;
@@ -299,6 +320,7 @@ section {
   min-height: auto;
   padding-bottom: 7rem;
   background: rgb(8, 18, 22);
+  opacity: 0;
 }
 .skills h2 {
   font-size: 5rem;
@@ -314,7 +336,11 @@ section {
 .skills .skills-row .skills-col {
   flex: 1 1 40rem;
 }
+.skills .skills-row .skills-col:nth-child(1) .skills-content .progress {
+  overflow: hidden;
+}
 .skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
+  overflow: hidden;
   width: 85%;
 }
 .skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
@@ -325,6 +351,9 @@ section {
 }
 .skills .skills-row .skills-col:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
   width: 60%;
+}
+.skills .skills-row .skills-col:nth-child(2) .skills-content .progress {
+  overflow: hidden;
 }
 .skills .skills-row .skills-col:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
   width: 85%;
@@ -338,6 +367,7 @@ section {
 .skills .skills-row .skills-col .title {
   font-size: 2.5rem;
   margin: 0 0 1.5rem;
+  text-align: center;
 }
 .skills .skills-row .skills-col .skills-box .skills-content {
   position: relative;
@@ -352,18 +382,19 @@ section {
   font-size: 1.7rem;
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 .skills .skills-row .skills-col .skills-box .skills-content .progress .bar {
   height: 2.5rem;
+  padding: 0.4rem 0;
   border-radius: 0.6rem;
   border: 0.3rem solid rgb(55, 130, 165);
-  padding: 0.5rem;
-  margin: 1rem 0;
 }
 .skills .skills-row .skills-col .skills-box .skills-content .progress .bar span {
   display: block;
   height: 100%;
-  border-radius: 0.3rem;
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
   background: rgb(55, 130, 165);
 }
 
@@ -371,6 +402,7 @@ section {
   max-width: 90rem;
   margin: 0 auto;
   text-align: center;
+  opacity: 0;
 }
 .contact h2 {
   font-size: 2.5rem;
@@ -509,5 +541,80 @@ footer {
   .contact form .input-box .input-field {
     position: relative;
     width: 100%;
+  }
+}
+.slideDown {
+  animation: slideDown forwards;
+  animation-duration: 1s;
+  visibility: visible;
+}
+
+.slideUp {
+  animation: slideUp forwards;
+  animation-duration: 1s;
+  visibility: visible;
+}
+
+.slideRight {
+  animation: slideright forwards;
+  animation-duration: 1s;
+  visibility: visible;
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    background-color: #000;
+  }
+  to {
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes slideright {
+  from {
+    opacity: 0;
+    transform: translateX(70%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+.animBar {
+  animation: animBar 1.5s linear forwards;
+}
+
+@keyframes animBar {
+  from {
+    z-index: -2;
+    transform: translateX(-60%);
+    overflow: hidden;
+  }
+  to {
+    z-index: -2;
+    overflow: hidden;
+    transform: translateX(0);
   }
 }/*# sourceMappingURL=style.css.map */
